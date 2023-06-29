@@ -43,6 +43,9 @@ public class GrappleController : MonoBehaviour
     {
         FacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+        if (Input.GetMouseButtonDown(1))
+            lineRenderer.enabled = false;
+
         if (isGrappling)
             RetractHook();
         else
@@ -81,13 +84,6 @@ public class GrappleController : MonoBehaviour
             isGrappling = false;
             rb2D.velocity = Vector2.zero;
             return;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            lineRenderer.enabled = false;
-            rb2D.velocity = Vector2.zero;
-            isGrappling = false;
-            grappleActive = false;
         }
 
         Vector2 direction = (origFirePoint =- hit.transform.position).normalized;

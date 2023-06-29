@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float runSpeed = 10f;
-    [SerializeField] private float jumpForce = 1000f;                          // Amount of force added when the player jumps.
+    [SerializeField] private float jumpForce = 800f;                          // Amount of force added when the player jumps.
 
     [SerializeField] private Transform groundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] SpriteRenderer spriteRenderer;
