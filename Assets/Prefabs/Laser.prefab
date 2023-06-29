@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4078848766924172114}
   - component: {fileID: 8891498986596811503}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Holdup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442068313990393482}
   - component: {fileID: 2616920116266819223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,8 +109,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 934159955403198516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
-  m_LocalScale: {x: 3.65625, y: 0.15750001, z: 1}
+  m_LocalPosition: {x: -0.0093, y: 1.1, z: 0}
+  m_LocalScale: {x: 3.714959, y: 0.15750001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7354532523460836856}
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.19100499, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.11260915, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7525213900009562544}
   - component: {fileID: 4578865681033268970}
   - component: {fileID: 7086978787157766466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColliderObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa900be7ad9941e888436e50ad2db88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &3693008588834616912
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8131644607414785053}
   - component: {fileID: 1806704155007632334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Holdup (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,5 +506,5 @@ Transform:
   - {fileID: 1442068313990393482}
   - {fileID: 7525213900009562544}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
