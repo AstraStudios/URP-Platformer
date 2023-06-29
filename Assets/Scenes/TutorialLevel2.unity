@@ -226,7 +226,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shoot a grappling hook at the point on top to swing across
+  m_text: 'Shoot a grappling hook at the point on top to swing across
+
+    You can
+    also double click to climb up your grappling line'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 063fde4ac84164871be6f2a5e6c4e449, type: 2}
   m_sharedMaterial: {fileID: -7580996123837237461, guid: 063fde4ac84164871be6f2a5e6c4e449, type: 2}
@@ -253,7 +256,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7.7
+  m_fontSize: 6.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
