@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3377866287909962599}
   m_Layer: 0
   m_Name: Bounds (1)
-  m_TagString: Ground
+  m_TagString: Ungrappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2001653551954722360}
   m_Layer: 0
   m_Name: Bounds
-  m_TagString: Ground
+  m_TagString: Ungrappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 5754377344770752941}
   m_Layer: 0
   m_Name: Bounds (3)
-  m_TagString: Ground
+  m_TagString: Ungrappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 1398525464370098358}
   m_Layer: 0
   m_Name: Bounds (2)
-  m_TagString: Ground
+  m_TagString: Ungrappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

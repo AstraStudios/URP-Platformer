@@ -43,9 +43,6 @@ public class GrappleController : MonoBehaviour
     {
         FacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-        if (Input.GetMouseButtonDown(1))
-            lineRenderer.enabled = false;
-
         if (isGrappling)
             RetractHook();
         else
