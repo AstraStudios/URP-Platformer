@@ -82,9 +82,13 @@ public class GrappleController : MonoBehaviour
             rb2D.velocity = Vector2.zero;
             return;
         }
-        //currentVelocity = (origFirePoint =- hit.transform.position).normalized * retractSpeed;
-        //rb2D.velocity = currentVelocity;
-        //rb2D.position += currentVelocity * Time.deltaTime;
+        if (Input.GetMouseButtonDown(1))
+        {
+            lineRenderer.enabled = false;
+            rb2D.velocity = Vector2.zero;
+            isGrappling = false;
+            grappleActive = false;
+        }
 
         Vector2 direction = (origFirePoint =- hit.transform.position).normalized;
         Vector2 targetPosition = rb2D.position + direction * retractSpeed * Time.deltaTime;
