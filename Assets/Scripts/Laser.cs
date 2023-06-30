@@ -17,7 +17,8 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Z))
+            player.transform.position = playerSpawn;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
