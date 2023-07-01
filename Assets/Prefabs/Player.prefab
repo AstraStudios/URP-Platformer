@@ -54,6 +54,48 @@ MonoBehaviour:
   maxDistance: 20
   retractSpeed: 10
   lineMat: {fileID: 2100000, guid: 31ef7c8b85ac74dff866eb9b0bec61a7, type: 2}
+  lineCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3742258
+      value: 0.77950776
+      inSlope: -5.4793396
+      outSlope: -5.4793396
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.05600686
+    - serializedVersion: 3
+      time: 0.7031366
+      value: 0.49959034
+      inSlope: 6.078524
+      outSlope: 6.078524
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.051356066
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!120 &6197819763658377888
 LineRenderer:
   serializedVersion: 2

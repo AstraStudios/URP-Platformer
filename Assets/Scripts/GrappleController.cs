@@ -25,7 +25,9 @@ public class GrappleController : MonoBehaviour
 
     [Header("Line Rendering:")]
     [SerializeField] Material lineMat;
+    [SerializeField] AnimationCurve lineCurve;
     LineRenderer lineRenderer;
+    float t = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,8 @@ public class GrappleController : MonoBehaviour
             RetractHook();
         else
             FireGrapple();
+
+        t += Time.deltaTime;
     }
 
     void FireGrapple()
@@ -68,8 +72,15 @@ public class GrappleController : MonoBehaviour
         if (grappleActive && hit.collider.CompareTag("Ground"))
         {
             lineRenderer.enabled = true;
+
+            // Evaluate the animation curve based on the current time 't'
+            float curveValue = lineCurve.Evaluate(t);
+
+            // Interpolate between the firePoint and hit.point based on the curve value
+            Vector3 interpolatedPosition = Vector3.Lerp(firePoint.transform.position, hit.point, curveValue);
+
             lineRenderer.SetPosition(0, firePoint.transform.position);
-            lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.SetPosition(1, interpolatedPosition);
         }
     }
 

@@ -7,6 +7,8 @@ public class Laser : MonoBehaviour
     GameObject player;
     Vector2 playerSpawn;
 
+    [SerializeField] ParticleSystem deathParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,8 @@ public class Laser : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            ParticleSystem spawnedParticles = Instantiate(deathParticles, player.transform.position, gameObject.transform.rotation);
+            spawnedParticles.Play();
             player.transform.position = playerSpawn;
         }
     }
