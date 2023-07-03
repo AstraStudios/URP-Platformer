@@ -40,6 +40,6 @@ public class MenuHandler : MonoBehaviour
     public void LoadMenu()
     {
         Destroy(musicHandler);
-        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 }
