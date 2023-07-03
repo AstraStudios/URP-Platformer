@@ -8,6 +8,7 @@ using TMPro;
 public class MenuHandler : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject musicHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,7 @@ public class MenuHandler : MonoBehaviour
 
     public void LoadMenu()
     {
+        Destroy(musicHandler);
         SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
     }
 }

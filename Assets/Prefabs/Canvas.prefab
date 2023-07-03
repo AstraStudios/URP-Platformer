@@ -721,7 +721,7 @@ RectTransform:
   - {fileID: 4958658827650695278}
   - {fileID: 9055429110372642395}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -804,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 5896272950142488748}
+  musicHandler: {fileID: 7853332804698866255, guid: 74a6fd6d6fb9242c6986eb36dea7e454, type: 3}
 --- !u!1 &7510906479188456192
 GameObject:
   m_ObjectHideFlags: 0
