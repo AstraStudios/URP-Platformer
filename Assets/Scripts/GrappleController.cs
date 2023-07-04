@@ -5,26 +5,17 @@ using UnityEngine;
 // overhauled version of original code
 public class GrappleController : MonoBehaviour
 {
-    [Header("Player Related:")]
-    [SerializeField] GameObject player;
-    Rigidbody2D rb;
-    float facingAngle = 0f;
-
     [Header("Line Firing:")]
-    [SerializeField] GameObject grapplePoint;
     [SerializeField] GameObject firePoint;
-    [SerializeField] GameObject grapplePointParent;
     [SerializeField] float grappleSpeed = 10f;
-    [SerializeField] float maxDistance = 20f;
-    [SerializeField] float retractSpeed = 10f;
-    RaycastHit2D hit;
-    bool isGrappling = false;
-    private Vector2 currentVelocity;
-    private Vector2 origFirePoint;
+    [HideInInspector] public bool isGrappling = false;
 
     [Header("Line Rendering:")]
     [SerializeField] Material lineMat;
+
+    Rigidbody2D rb;
     LineRenderer lineRenderer;
+    RaycastHit2D hit;
 
     void Start()
     {
@@ -43,6 +34,10 @@ public class GrappleController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
             FireGrapple();
 
+        else if (!Input.GetMouseButton(0))
+            isGrappling = false;
+
+
         if (isGrappling)
         {
             lineRenderer.enabled = true;
@@ -50,19 +45,22 @@ public class GrappleController : MonoBehaviour
             lineRenderer.SetPosition(0, firePoint.transform.position);
             lineRenderer.SetPosition(1, hit.point);
         }
+        else
+            lineRenderer.enabled = false;
     }
 
     void FireGrapple()
     {
-        hit = Physics2D.Raycast(firePoint.transform.position, -firePoint.transform.right);
+        RaycastHit2D newhit = Physics2D.Raycast(firePoint.transform.position, -firePoint.transform.right);
 
-        if (!hit.collider.CompareTag("Ground")) return;
+        if (!newhit.collider.CompareTag("Ground")) return;
+
+        hit = newhit;
 
         isGrappling = true;
 
         // launch twords point
-        currentVelocity = (hit.point - (Vector2)firePoint.transform.position).normalized * grappleSpeed; 
-        rb.velocity = (currentVelocity);
+        rb.velocity = ((hit.point - (Vector2)firePoint.transform.position).normalized * grappleSpeed);
     }
 
     /////// UTILS
@@ -70,7 +68,7 @@ public class GrappleController : MonoBehaviour
     void FacePosition(Vector3 position)
     {
         Vector3 direction = position - transform.position;
-        facingAngle = Vector2.SignedAngle(Vector2.right, direction);
+        float facingAngle = Vector2.SignedAngle(Vector2.right, direction);
         transform.eulerAngles = new Vector3(0, 0, facingAngle + 180);
     }
 }
