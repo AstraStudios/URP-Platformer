@@ -804,7 +804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 5896272950142488748}
-  musicHandler: {fileID: 7853332804698866255, guid: 74a6fd6d6fb9242c6986eb36dea7e454, type: 3}
 --- !u!1 &7510906479188456192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back
+  m_text: Back to menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 063fde4ac84164871be6f2a5e6c4e449, type: 2}
   m_sharedMaterial: {fileID: -7580996123837237461, guid: 063fde4ac84164871be6f2a5e6c4e449, type: 2}
