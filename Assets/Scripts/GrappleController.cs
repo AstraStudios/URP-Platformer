@@ -7,7 +7,7 @@ public class GrappleController : MonoBehaviour
 {
     [Header("Player Related:")]
     [SerializeField] GameObject player;
-    Rigidbody2D rb2D;
+    Rigidbody2D rb;
     float facingAngle = 0f;
 
     [Header("Line Firing:")]
@@ -18,21 +18,17 @@ public class GrappleController : MonoBehaviour
     [SerializeField] float maxDistance = 20f;
     [SerializeField] float retractSpeed = 10f;
     RaycastHit2D hit;
-    bool grappleActive = false;
     bool isGrappling = false;
     private Vector2 currentVelocity;
     private Vector2 origFirePoint;
 
     [Header("Line Rendering:")]
     [SerializeField] Material lineMat;
-    [SerializeField] AnimationCurve lineCurve;
     LineRenderer lineRenderer;
-    float t = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        rb2D = gameObject.GetComponentInParent<Rigidbody2D>();
+        rb = gameObject.GetComponentInParent<Rigidbody2D>();
 
         lineRenderer = gameObject.GetComponent<LineRenderer>();
         lineRenderer.startWidth = .1f;
@@ -40,75 +36,36 @@ public class GrappleController : MonoBehaviour
         lineRenderer.material = lineMat;
     }
 
-    // Update is called once per frame
     void Update()
     {
         FacePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-        if (isGrappling)
-            RetractHook();
-        else
+        if (Input.GetMouseButtonDown(0))
             FireGrapple();
 
-        t += Time.deltaTime;
+        if (isGrappling)
+        {
+            lineRenderer.enabled = true;
+
+            lineRenderer.SetPosition(0, firePoint.transform.position);
+            lineRenderer.SetPosition(1, hit.point);
+        }
     }
 
     void FireGrapple()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            hit = Physics2D.Raycast(firePoint.transform.position, -firePoint.transform.right);
-            origFirePoint = firePoint.transform.position;
+        hit = Physics2D.Raycast(firePoint.transform.position, -firePoint.transform.right);
 
-            if (hit.collider.CompareTag("Ground"))
-            {
-                GameObject lastSpawned = Instantiate(grapplePoint, hit.transform.position, Quaternion.identity);
-                lastSpawned.transform.parent = grapplePointParent.transform;
-                grappleActive = true;
-                currentVelocity = (hit.point - origFirePoint).normalized * grappleSpeed;
-                rb2D.velocity = currentVelocity;
-            }
-        }
-        if (grappleActive && hit.collider.CompareTag("Ground"))
-        {
-            lineRenderer.enabled = true;
+        if (!hit.collider.CompareTag("Ground")) return;
 
-            // Evaluate the animation curve based on the current time 't'
-            float curveValue = lineCurve.Evaluate(t);
-
-            // Interpolate between the firePoint and hit.point based on the curve value
-            Vector3 interpolatedPosition = Vector3.Lerp(firePoint.transform.position, hit.point, curveValue);
-
-            lineRenderer.SetPosition(0, firePoint.transform.position);
-            lineRenderer.SetPosition(1, interpolatedPosition);
-        }
-    }
-
-    void RetractHook()
-    {
-        float distance = Vector2.Distance(firePoint.transform.position, hit.transform.position);
-        if (distance >= maxDistance)
-        {
-            isGrappling = false;
-            rb2D.velocity = Vector2.zero;
-            return;
-        }
-
-        Vector2 direction = (origFirePoint =- hit.transform.position).normalized;
-        Vector2 targetPosition = rb2D.position + direction * retractSpeed * Time.deltaTime;
-        rb2D.MovePosition(targetPosition);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
         isGrappling = true;
-        rb2D.velocity = Vector2.zero;
+
+        // launch twords point
+        currentVelocity = (hit.point - (Vector2)firePoint.transform.position).normalized * grappleSpeed; 
+        rb.velocity = (currentVelocity);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isGrappling = false;
-    }
+    /////// UTILS
 
     void FacePosition(Vector3 position)
     {
