@@ -8,10 +8,13 @@ public class Laser : MonoBehaviour
     Vector2 playerSpawn;
 
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] AudioClip deathSound;
+    AudioSource laserSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        laserSource = gameObject.GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerSpawn = player.transform.position;
     }
@@ -29,6 +32,8 @@ public class Laser : MonoBehaviour
         {
             ParticleSystem spawnedParticles = Instantiate(deathParticles, player.transform.position, gameObject.transform.rotation);
             spawnedParticles.Play();
+            laserSource.clip = deathSound;
+            laserSource.Play();
             player.transform.position = playerSpawn;
         }
     }
