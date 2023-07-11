@@ -46,56 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7effec99f5f1b40f6adb6c93a74ba4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8411825013517376983}
-  grapplePoint: {fileID: 4593198407791272085, guid: 806f221133da14939a89d066427d3b0f, type: 3}
   firePoint: {fileID: 1927537246737058802}
-  grapplePointParent: {fileID: 7797197067732686428}
   grappleSpeed: 10
-  maxDistance: 20
-  retractSpeed: 10
+  isGrappling: 0
   lineMat: {fileID: 2100000, guid: 31ef7c8b85ac74dff866eb9b0bec61a7, type: 2}
-  lineCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.3742258
-      value: 0.77950776
-      inSlope: -5.4793396
-      outSlope: -5.4793396
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.05600686
-    - serializedVersion: 3
-      time: 0.7031366
-      value: 0.49959034
-      inSlope: 6.078524
-      outSlope: 6.078524
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.051356066
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  fireParticles: {fileID: 5084075272040675715, guid: 24a210c114fec4c2f9f89151b9d3d014, type: 3}
 --- !u!120 &6197819763658377888
 LineRenderer:
   serializedVersion: 2

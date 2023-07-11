@@ -12,6 +12,7 @@ public class GrappleController : MonoBehaviour
 
     [Header("Line Rendering:")]
     [SerializeField] Material lineMat;
+    [SerializeField] ParticleSystem fireParticles;
 
     Rigidbody2D rb;
     LineRenderer lineRenderer;
@@ -58,6 +59,8 @@ public class GrappleController : MonoBehaviour
         hit = newhit;
 
         isGrappling = true;
+        ParticleSystem firedParticles = Instantiate(fireParticles, firePoint.transform.position, firePoint.transform.rotation);
+        firedParticles.Play();
 
         // launch twords point
         rb.velocity = ((hit.point - (Vector2)firePoint.transform.position).normalized * grappleSpeed);
