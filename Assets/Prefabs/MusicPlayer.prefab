@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2138766338366574199
 MonoBehaviour:
@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2d1a94cf2c26d4192be3255327c5a004, type: 3}
   - {fileID: 8300000, guid: 712a80d9b22424951b05c74d4dea8165, type: 3}
   - {fileID: 8300000, guid: f8df6a9031df24a4d88ec6758ceba6be, type: 3}
+  audioMixer: {fileID: 24100000, guid: 7b41df3cf82134339a5a38797ee510ac, type: 2}
 --- !u!82 &348503964938580320
 AudioSource:
   m_ObjectHideFlags: 0
@@ -59,7 +60,7 @@ AudioSource:
   m_GameObject: {fileID: 7853332804698866255}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 7b41df3cf82134339a5a38797ee510ac, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

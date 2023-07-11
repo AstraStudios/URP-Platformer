@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicHandler : MonoBehaviour
 {
     [SerializeField] List<AudioClip> audioClips = new List<AudioClip>();
+    [SerializeField] AudioMixer audioMixer;
     AudioSource audioPlayer;
     int currentClipIndex = 0;
 
@@ -37,5 +39,10 @@ public class MusicHandler : MonoBehaviour
         currentClipIndex++;
         currentClipIndex %= audioClips.Count - 1;
         audioPlayer.Play();
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("Volume", volume);
     }
 }
